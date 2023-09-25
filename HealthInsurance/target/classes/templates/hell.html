@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body, ul {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Apply a background color to the entire page */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Styling for the menu */
+        .menu {
+            background-color: #333;
+            color: white;
+            width: 250px; /* Adjust the width as needed */
+            height: 100%; /* Full height menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        .menu ul li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            
+        }
+
+        /* Styling for the content area */
+        .content {
+            margin-top: 30px;
+            margin-left: 280px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the table */
+        table {
+            margin-top: 30px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Style odd rows with a light gray background */
+        tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        /* Style even rows with a white background */
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        /* Styling for the table header */
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Add some space for the last column with the button */
+        td:last-child {
+            padding-right: 30px;
+        }
+
+		.submenu{
+			font-size: 14px;
+		}
+		#filterForm{
+			margin-left:20%;
+		}
+	
+		
+     
+    </style>
+    <title>Left Top Menu Page</title>
+</head>
+<body>
+    <div class="menu">
+       
+     <ul> <li>Claims
+			<ul class="submenu">
+            <li><a th:href="@{'/'}" >Important Summary counts</a></li><br>
+            <li><a th:href="@{'/applicants'}">Number of Insurance applicants</a></li><br>
+            <li><a th:href="@{'/claims'}">Claim Value</a></li><br>
+            <li><a th:href="@{'/rejected'}">Rejected Loans</a></li><br>
+            </ul>
+			</li>
+        </ul>
+
+    </div>
+    <div>
+		<br><!--
+   <form action="getFilteredClaims" method="get" id="filterForm">
+        <label for="statusSelect">Status :</label>
+        <select name="status" id="statusSelect">
+            <option value="FULL">Select</option>
+            <option value="RJCT">Rejected</option>
+            <option value="PART">Partially Rejected</option>
+        </select>
+  
+     
+      
+            <input type="submit" value="Filter" style="height:30px;">
+   
+    </form></div>
+    
+    -->
+    
+    <div class="content"> <br><br>
+ 
+
+               
+        <table border="1" id="claimTable" class="hidden">
+        <tr>
+			<th>Sl no.</th>
+            <th>clam id</th>
+            <th>bill index</th>
+            <th>title</th>
+            <th>path</th>
+            <th>amount</th>
+            <th>claim amnt</th>
+            <th>date</th>
+            <th>processed by</th>
+            <th>remarks</th>
+            <th>status</th>
+            
+        </tr>
+      
+         <tr th:each="clmbills,sl : ${claimbills}">
+			 <th:block th:if="${claimbills != null}">
+			  <td class="align-middle" th:text="${sl.index+1}"></td>
+            <td class="align-middle" th:text="${clmbills.clam_id}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_billindex}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_document_title}"></td>
+            <td class="align-middle">
+    <a th:href="${clmbills.clbl_document_path}" th:text="${clmbills.clbl_document_path}">Link Text</a>
+</td>
+
+            <td class="align-middle" th:text="${clmbills.clbl_claim_amount}"></td>
+             <td class="align-middle" th:text="${clmbills.clbl_processed_amount}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_processed_Date}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_processed_by}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_remarks}"></td>
+            <td class="align-middle" th:text="${clmbills.clbl_status}"></td>
+           
+            </th:block>
+        </tr> 
+      
+    </table>
+        
+        <br><br>
+        <div align="center"><a class="btn btn-primary" th:href="@{'/dashboard'}">Back</a></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    
+    <script>
+		
+		
+		
+	</script>
+    
+    
+</body>
+</html>

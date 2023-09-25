@@ -1,0 +1,16 @@
+com\insurance\HealthInsurance\rowmappers\ClaimBillsRowMappers.class
+com\insurance\HealthInsurance\HealthInsuranceApplication.class
+com\insurance\HealthInsurance\models\Claim.class
+com\insurance\HealthInsurance\models\InsurancePackageCoveredDisease.class
+com\insurance\HealthInsurance\rowmappers\DiseseDetailsRowMapper.class
+com\insurance\HealthInsurance\models\ClaimBills.class
+com\insurance\HealthInsurance\Repositories\InsuranceClaimRepo.class
+com\insurance\HealthInsurance\rowmappers\ClaimsRowMapper.class
+com\insurance\HealthInsurance\contractors\InsuranceClaim.class
+com\insurance\HealthInsurance\controller\InsuranceClaimController.class
+com\insurance\HealthInsurance\models\InsurancePackage.class
+com\insurance\HealthInsurance\services\ClaimService.class
+com\insurance\HealthInsurance\models\DiseaseDetails.class
+com\insurance\HealthInsurance\models\Claims.class
+com\insurance\HealthInsurance\rowmappers\InsurancePackageCoveredDiseaseRowMapper.class
+com\insurance\HealthInsurance\rowmappers\InsurancePackageRowMapper.class

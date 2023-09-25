@@ -1,0 +1,16 @@
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\rowmappers\ClaimsRowMapper.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\rowmappers\DiseseDetailsRowMapper.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\Repositories\InsuranceClaimRepo.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\services\ClaimService.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\DiseaseDetails.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\Claim.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\controller\InsuranceClaimController.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\contractors\InsuranceClaim.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\Claims.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\InsurancePackageCoveredDisease.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\rowmappers\ClaimBillsRowMappers.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\rowmappers\InsurancePackageRowMapper.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\InsurancePackage.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\HealthInsuranceApplication.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\models\ClaimBills.java
+C:\Users\satish.ki\Downloads\Insurance-main (1)\Insurance-main\HealthInsurance\src\main\java\com\insurance\HealthInsurance\rowmappers\InsurancePackageCoveredDiseaseRowMapper.java
