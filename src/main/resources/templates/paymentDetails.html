@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Details</title>
+    <style>
+        /* Add CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+       .header {
+	background-color: 	deepskyblue;
+  color:black;
+  text-align: center;
+  padding: 10px;
+  position: fixed; /* Fixed position at the top */
+  top: 0; /* Stick to the top of the viewport */
+  left: 0; /* Stick to the left */
+  width: 100%; /* Full width */
+  z-index: 1000;
+	
+}/* Sidebar Styles */
+        .sidebar {
+            background:  #1976D2;
+            padding-top: 0px;
+            position: fixed;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            margin-top: 0px;
+            
+        }
+
+        .sidebar .profile_image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h4 {
+            color: #ccc;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            text-decoration: none;
+            padding-left: 40px;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+
+        .sidebar a:hover {
+            background: #19B3D3;
+        }
+
+        .sidebar i {
+            padding-right: 10px;
+        }
+
+    </style>
+  </head>
+  <body>
+	
+
+    <h1>Payment Details</h1>
+     <div class="sidebar" style="margin-top:0px;">
+        <center>
+     <img src="images/imgg.jpg" style="width: 100px; height: 100px;border-radius: 50%;">            <h4>Admin</h4>
+        </center>
+        <a th:href="@{/index}"><i class="fas fa-tachometer-alt"></i><span>Home</span></a>
+        <a th:href="@{/index}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+        <a th:href="@{/newclaim}"><i class="fas fa-users"></i><span>New claim</span></a>
+        <a th:href="@{/getAllClaims}"><i class="fas fa-list-alt"></i><span>List Claims</span></a>
+        <a th:href="@{/start}"><i class="fas fa-list-alt"></i><span>List Packages</span></a>
+        <a th:href="@{/payments}"><i class="fas fa-product-hunt"></i><span>Payments</span></a>
+        <a th:href="@{/index}"><i class="fas fa-question-circle"></i><span>About</span></a>
+        <a th:href="@{/}"><i class="fas fa-question-circle"></i><span>Log out</span></a>
+    </div><br><br>
+    <div class="container">
+        <p><strong>Settlement Id:</strong> <span th:text="${payment.stmt_id }"></span></p>
+        <p><strong>Transaction ID:</strong> <span th:text="${payment.tran_id }"></span></p>
+        <p><strong>Payment Date:</strong> <span th:text="${#dates.format(payment.payment_Processed_date , 'yyyy-MM-dd')}"></span></p>
+        <p><strong>Claim ID:</strong> <span th:text="${payment.claim_id }"></span></p>
+        <p><strong>Payment Amount:</strong> <span th:text="${payment.tran_amnt }"></span></p>
+     
+        <a th:href="@{/payments}" class="btn btn-primary">Back to Payments</a>
+    </div>
+</body>
+</html>

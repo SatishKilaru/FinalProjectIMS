@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Insurance Packages List</title>
+
+    <!-- Link your CSS file -->
+    <style>
+        /* Inline CSS for specific elements if needed */
+        /* styles.css */
+
+        /* Apply styles to the header */
+        header {
+           
+            padding: 10px;
+            /* Add some padding */
+            text-align: center;
+            /* Center-align the text */
+        }
+
+        /* Apply styles to the h1 heading */
+        h1 {
+            font-size: 24px;
+            /* Change the font size */
+            margin-bottom: 10px;
+            /* Add some spacing at the bottom */
+        }
+
+        /* Apply styles to the table */
+        table {
+			
+            width: 90%;
+            /* Make the table take up the full width of its container */
+            border-collapse: collapse;
+            /* Collapse table borders */
+            margin: 20px;
+            /* Add margin around the table */
+        }
+
+        /* Apply styles to table header cells */
+        th {
+            background-color: #333;
+            /* Change the header background color */
+            color: #fff;
+            /* Change the header text color */
+            padding: 10px;
+            /* Add padding to header cells */
+            text-align: left;
+            /* Left-align header text */
+        }
+
+        /* Apply styles to table data cells */
+        td {
+            border: 1px solid #ddd;
+            /* Add a border to data cells */
+            padding: 8px;
+            /* Add padding to data cells */
+        }
+
+        /* Apply styles to hyperlinks */
+        a {
+            text-decoration: none;
+            /* Remove underlines from hyperlinks */
+            color: #007bff;
+            /* Change hyperlink color */
+        }
+
+        /* Apply styles to hyperlinks on hover */
+        a:hover {
+            text-decoration: underline;
+            /* Add underline on hover */
+        }
+
+        /* Apply styles to the select element */
+        select {
+			margin-left:200px;
+            width: 50%;
+            /* Make the select element take up the full width of its container */
+            padding: 8px;
+            /* Add padding */
+            margin: 5px 0;
+            /* Add margin */
+            border: 1px solid #ddd;
+            /* Add a border */
+        }
+
+        /* Apply styles to text input fields */
+        input[type="text"] {
+			margin-left:200px;
+            width: 50%;
+            /* Make the input field take up the full width of its container */
+            padding: 8px;
+            /* Add padding */
+            margin: 5px 0;
+            /* Add margin */
+            border: 1px solid #ddd;
+            /* Add a border */
+        }
+       header {
+		   
+	background-color: 	blue;
+  color:white;
+  text-align: center;
+  padding: 10px;
+	height:60px;
+  top: 0; /* Stick to the top of the viewport */
+  left: 0; /* Stick to the left */
+  width: 100%; /* Full width */
+  z-index: 1000;
+	
+}
+/* Sidebar Styles */
+        .sidebar {
+            background:  #1976D2;
+            padding-top: 80px;
+            position: fixed;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            margin-top: 0px;
+        }
+
+        .sidebar .profile_image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h4 {
+            color: #ccc;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            text-decoration: none;
+            padding-left: 40px;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+
+        .sidebar a:hover {
+            background: #19B3D3;
+        }
+
+        .sidebar i {
+            padding-right: 10px;
+        }
+    </style>
+  </head>
+  <body>
+  
+   
+        <header><b>Insurance Packages List</b></header>
+	<div class="sidebar">
+        <center>
+     <img src="images/imgg.jpg" style="width: 100px; height: 100px;border-radius: 50%;">            <h4>Admin</h4>
+        </center>
+        <a th:href="@{/index}"><i class="fas fa-tachometer-alt"></i><span>Home</span></a>
+        <a th:href="@{/index}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+        <a th:href="@{/newclaim}"><i class="fas fa-users"></i><span>New claim</span></a>
+        <a th:href="@{/getAllClaims}"><i class="fas fa-list-alt"></i><span>List Claims</span></a>
+        <a th:href="@{/start}"><i class="fas fa-list-alt"></i><span>List Packages</span></a>
+        <a th:href="@{/payments}"><i class="fas fa-product-hunt"></i><span>Payments</span></a>
+        <a th:href="@{/index}"><i class="fas fa-question-circle"></i><span>About</span></a>
+        <a th:href="@{/}"><i class="fas fa-question-circle"></i><span>Log out</span></a>
+    </div>
+
+    <form action="filteredpackages" style="margin-left:300px;">
+		Status:
+		<select name="status" id="status" >
+			<option name="ALL">ALL</option>
+			<option name="AC">AC</option>
+			<option name="NA">NA</option>
+		</select><br>
+		Age Limit:
+		<input type="text" name="age" id="age" >
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary">Search</button>
+    
+	</form>
+<br>
+	<form action="excel" style="margin-left:300px;">
+		<input type="hidden" id="statu" name="status">
+		<input type="hidden" id="ag" name="age">
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="Download" onclick="downloadExcel()" id="down" class="btn btn-success" >
+	</form>
+
+	<section style="margin-left:280px;">
+		<table id="packageTable" >
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Status</th>
+					<th>Range Start</th>
+					<th>Range End</th>
+					<th>Age Limit Start</th>
+					<th>Age Limit End</th>
+					<th>Action</th> <!-- Add a new column for the button -->
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Loop through the insurance packages and display them in rows -->
+				<tr th:each="insurancePackage : ${insurancePackages}">
+					<td th:text="${insurancePackage.inspId}"></td>
+					<td th:text="${insurancePackage.inspTitle}"></td>
+					<td th:text="${insurancePackage.inspDescription}"></td>
+					<td th:text="${insurancePackage.inspStatus}"></td>
+					<td th:text="${insurancePackage.inspRangeStart}"></td>
+					<td th:text="${insurancePackage.inspRangeEnd}"></td>
+					<td th:text="${insurancePackage.inspAgeLimitStart}"></td>
+					<td th:text="${insurancePackage.inspAgeLimitEnd}"></td>
+					<td>
+						<!-- Add a button that links to the controller with the insurance ID as a parameter -->
+						<a th:href="@{'/diseases/' + ${insurancePackage.inspId}}" class="btn btn-primary">View</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<footer>
+		<!-- Add footer content if needed -->
+	</footer>
+	<script>
+		function downloadExcel() {
+			var status = document.getElementById("status").value;
+			var age = document.getElementById("age").value;
+			document.getElementById("statu").value = status;
+			document.getElementById("ag").value = age;
+			alert(status + age);
+		}
+	</script>
+</body>
+
+</html>
